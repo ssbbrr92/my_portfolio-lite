@@ -392,7 +392,7 @@ var scheduler_production_min = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-(function(exports) {
+(function(exports$1) {
   function f2(a, b) {
     var c = a.length;
     a.push(b);
@@ -425,12 +425,12 @@ var scheduler_production_min = {};
   }
   if ("object" === typeof performance && "function" === typeof performance.now) {
     var l2 = performance;
-    exports.unstable_now = function() {
+    exports$1.unstable_now = function() {
       return l2.now();
     };
   } else {
     var p2 = Date, q2 = p2.now();
-    exports.unstable_now = function() {
+    exports$1.unstable_now = function() {
       return p2.now() - q2;
     };
   }
@@ -466,7 +466,7 @@ var scheduler_production_min = {};
           v2.callback = null;
           y2 = v2.priorityLevel;
           var e = d(v2.expirationTime <= b);
-          b = exports.unstable_now();
+          b = exports$1.unstable_now();
           "function" === typeof e ? v2.callback = e : v2 === h(r2) && k2(r2);
           G2(b);
         } else k2(r2);
@@ -485,11 +485,11 @@ var scheduler_production_min = {};
   }
   var N2 = false, O2 = null, L2 = -1, P2 = 5, Q2 = -1;
   function M2() {
-    return exports.unstable_now() - Q2 < P2 ? false : true;
+    return exports$1.unstable_now() - Q2 < P2 ? false : true;
   }
   function R2() {
     if (null !== O2) {
-      var a = exports.unstable_now();
+      var a = exports$1.unstable_now();
       Q2 = a;
       var b = true;
       try {
@@ -518,31 +518,31 @@ var scheduler_production_min = {};
   }
   function K2(a, b) {
     L2 = D2(function() {
-      a(exports.unstable_now());
+      a(exports$1.unstable_now());
     }, b);
   }
-  exports.unstable_IdlePriority = 5;
-  exports.unstable_ImmediatePriority = 1;
-  exports.unstable_LowPriority = 4;
-  exports.unstable_NormalPriority = 3;
-  exports.unstable_Profiling = null;
-  exports.unstable_UserBlockingPriority = 2;
-  exports.unstable_cancelCallback = function(a) {
+  exports$1.unstable_IdlePriority = 5;
+  exports$1.unstable_ImmediatePriority = 1;
+  exports$1.unstable_LowPriority = 4;
+  exports$1.unstable_NormalPriority = 3;
+  exports$1.unstable_Profiling = null;
+  exports$1.unstable_UserBlockingPriority = 2;
+  exports$1.unstable_cancelCallback = function(a) {
     a.callback = null;
   };
-  exports.unstable_continueExecution = function() {
+  exports$1.unstable_continueExecution = function() {
     A2 || z2 || (A2 = true, I2(J2));
   };
-  exports.unstable_forceFrameRate = function(a) {
+  exports$1.unstable_forceFrameRate = function(a) {
     0 > a || 125 < a ? console.error("forceFrameRate takes a positive int between 0 and 125, forcing frame rates higher than 125 fps is not supported") : P2 = 0 < a ? Math.floor(1e3 / a) : 5;
   };
-  exports.unstable_getCurrentPriorityLevel = function() {
+  exports$1.unstable_getCurrentPriorityLevel = function() {
     return y2;
   };
-  exports.unstable_getFirstCallbackNode = function() {
+  exports$1.unstable_getFirstCallbackNode = function() {
     return h(r2);
   };
-  exports.unstable_next = function(a) {
+  exports$1.unstable_next = function(a) {
     switch (y2) {
       case 1:
       case 2:
@@ -560,11 +560,11 @@ var scheduler_production_min = {};
       y2 = c;
     }
   };
-  exports.unstable_pauseExecution = function() {
+  exports$1.unstable_pauseExecution = function() {
   };
-  exports.unstable_requestPaint = function() {
+  exports$1.unstable_requestPaint = function() {
   };
-  exports.unstable_runWithPriority = function(a, b) {
+  exports$1.unstable_runWithPriority = function(a, b) {
     switch (a) {
       case 1:
       case 2:
@@ -583,8 +583,8 @@ var scheduler_production_min = {};
       y2 = c;
     }
   };
-  exports.unstable_scheduleCallback = function(a, b, c) {
-    var d = exports.unstable_now();
+  exports$1.unstable_scheduleCallback = function(a, b, c) {
+    var d = exports$1.unstable_now();
     "object" === typeof c && null !== c ? (c = c.delay, c = "number" === typeof c && 0 < c ? d + c : d) : c = d;
     switch (a) {
       case 1:
@@ -607,8 +607,8 @@ var scheduler_production_min = {};
     c > d ? (a.sortIndex = c, f2(t2, a), null === h(r2) && a === h(t2) && (B2 ? (E2(L2), L2 = -1) : B2 = true, K2(H2, c - d))) : (a.sortIndex = e, f2(r2, a), A2 || z2 || (A2 = true, I2(J2)));
     return a;
   };
-  exports.unstable_shouldYield = M2;
-  exports.unstable_wrapCallback = function(a) {
+  exports$1.unstable_shouldYield = M2;
+  exports$1.unstable_wrapCallback = function(a) {
     var b = y2;
     return function() {
       var c = y2;
@@ -8529,7 +8529,7 @@ var withEmotionCache = function withEmotionCache2(func) {
   });
 };
 var ThemeContext = /* @__PURE__ */ reactExports.createContext({});
-var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|disableRemotePlayback|download|draggable|encType|enterKeyHint|fetchpriority|fetchPriority|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/;
+var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|disableRemotePlayback|download|draggable|encType|enterKeyHint|fetchpriority|fetchPriority|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|popover|popoverTarget|popoverTargetAction|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/;
 var isPropValid = /* @__PURE__ */ memoize$1(
   function(prop) {
     return reactPropsRegex.test(prop) || prop.charCodeAt(0) === 111 && prop.charCodeAt(1) === 110 && prop.charCodeAt(2) < 91;
@@ -8648,10 +8648,10 @@ var createStyled$1 = function createStyled(tag, options) {
       }
     });
     Styled.withComponent = function(nextTag, nextOptions) {
-      var newStyled2 = createStyled(nextTag, _extends({}, options, nextOptions, {
+      var newStyled = createStyled(nextTag, _extends({}, options, nextOptions, {
         shouldForwardProp: composeShouldForwardProps(Styled, nextOptions, true)
       }));
-      return newStyled2.apply(void 0, styles2);
+      return newStyled.apply(void 0, styles2);
     };
     return Styled;
   };
@@ -8793,12 +8793,12 @@ var tags = [
   "text",
   "tspan"
 ];
-var newStyled = createStyled$1.bind(null);
+var styled$2 = createStyled$1.bind(null);
 tags.forEach(function(tagName) {
-  newStyled[tagName] = newStyled(tagName);
+  styled$2[tagName] = styled$2(tagName);
 });
 function styled$1(tag, options) {
-  const stylesFactory = newStyled(tag, options);
+  const stylesFactory = styled$2(tag, options);
   return stylesFactory;
 }
 function internal_mutateStyles(tag, processor) {
@@ -9943,7 +9943,8 @@ function unstable_createStyleFunctionSx() {
   function styleFunctionSx2(props) {
     const {
       sx,
-      theme = {}
+      theme = {},
+      nested
     } = props || {};
     if (!sx) {
       return null;
@@ -9977,7 +9978,8 @@ function unstable_createStyleFunctionSx() {
               if (objectsHaveSameKeys(breakpointsValues, value)) {
                 css[styleKey] = styleFunctionSx2({
                   sx: value,
-                  theme
+                  theme,
+                  nested: true
                 });
               } else {
                 css = merge(css, breakpointsValues);
@@ -9988,6 +9990,11 @@ function unstable_createStyleFunctionSx() {
           }
         }
       });
+      if (!nested && theme.modularCssLayers) {
+        return {
+          "@layer sx": sortContainerQueries(theme, removeUnusedBreakpoints(breakpointsKeys, css))
+        };
+      }
       return sortContainerQueries(theme, removeUnusedBreakpoints(breakpointsKeys, css));
     }
     return Array.isArray(sx) ? sx.map(traverse) : traverse(sx);
@@ -10150,6 +10157,12 @@ const systemDefaultTheme = createTheme$1();
 function shouldForwardProp(prop) {
   return prop !== "ownerState" && prop !== "theme" && prop !== "sx" && prop !== "as";
 }
+function shallowLayer(serialized, layerName) {
+  if (layerName && serialized && typeof serialized === "object" && serialized.styles && !serialized.styles.startsWith("@layer")) {
+    serialized.styles = `@layer ${layerName}{${String(serialized.styles)}}`;
+  }
+  return serialized;
+}
 function defaultOverridesResolver(slot) {
   if (!slot) {
     return null;
@@ -10159,30 +10172,30 @@ function defaultOverridesResolver(slot) {
 function attachTheme(props, themeId, defaultTheme2) {
   props.theme = isObjectEmpty(props.theme) ? defaultTheme2 : props.theme[themeId] || props.theme;
 }
-function processStyle(props, style2) {
+function processStyle(props, style2, layerName) {
   const resolvedStyle = typeof style2 === "function" ? style2(props) : style2;
   if (Array.isArray(resolvedStyle)) {
-    return resolvedStyle.flatMap((subStyle) => processStyle(props, subStyle));
+    return resolvedStyle.flatMap((subStyle) => processStyle(props, subStyle, layerName));
   }
   if (Array.isArray(resolvedStyle == null ? void 0 : resolvedStyle.variants)) {
     let rootStyle;
     if (resolvedStyle.isProcessed) {
-      rootStyle = resolvedStyle.style;
+      rootStyle = layerName ? shallowLayer(resolvedStyle.style, layerName) : resolvedStyle.style;
     } else {
       const {
         variants,
         ...otherStyles
       } = resolvedStyle;
-      rootStyle = otherStyles;
+      rootStyle = layerName ? shallowLayer(internal_serializeStyles(otherStyles), layerName) : otherStyles;
     }
-    return processStyleVariants(props, resolvedStyle.variants, [rootStyle]);
+    return processStyleVariants(props, resolvedStyle.variants, [rootStyle], layerName);
   }
   if (resolvedStyle == null ? void 0 : resolvedStyle.isProcessed) {
-    return resolvedStyle.style;
+    return layerName ? shallowLayer(internal_serializeStyles(resolvedStyle.style), layerName) : resolvedStyle.style;
   }
-  return resolvedStyle;
+  return layerName ? shallowLayer(internal_serializeStyles(resolvedStyle), layerName) : resolvedStyle;
 }
-function processStyleVariants(props, variants, results = []) {
+function processStyleVariants(props, variants, results = [], layerName = void 0) {
   var _a;
   let mergedState;
   variantLoop: for (let i = 0; i < variants.length; i += 1) {
@@ -10209,9 +10222,9 @@ function processStyleVariants(props, variants, results = []) {
         ...props.ownerState,
         ownerState: props.ownerState
       });
-      results.push(variant.style(mergedState));
+      results.push(layerName ? shallowLayer(internal_serializeStyles(variant.style(mergedState)), layerName) : variant.style(mergedState));
     } else {
-      results.push(variant.style);
+      results.push(layerName ? shallowLayer(internal_serializeStyles(variant.style), layerName) : variant.style);
     }
   }
   return results;
@@ -10238,6 +10251,7 @@ function createStyled2(input = {}) {
       overridesResolver = defaultOverridesResolver(lowercaseFirstLetter(componentSlot)),
       ...options
     } = inputOptions;
+    const layerName = componentName && componentName.startsWith("Mui") || !!componentSlot ? "components" : "custom";
     const skipVariantsResolver = inputSkipVariantsResolver !== void 0 ? inputSkipVariantsResolver : (
       // TODO v6: remove `Root` in the next major release
       // For more details: https://github.com/mui/material-ui/pull/37908
@@ -10258,18 +10272,21 @@ function createStyled2(input = {}) {
       ...options
     });
     const transformStyle = (style2) => {
-      if (typeof style2 === "function" && style2.__emotion_real !== style2) {
+      if (style2.__emotion_real === style2) {
+        return style2;
+      }
+      if (typeof style2 === "function") {
         return function styleFunctionProcessor(props) {
-          return processStyle(props, style2);
+          return processStyle(props, style2, props.theme.modularCssLayers ? layerName : void 0);
         };
       }
       if (isPlainObject(style2)) {
         const serialized = preprocessStyles(style2);
-        if (!serialized.variants) {
-          return serialized.style;
-        }
         return function styleObjectProcessor(props) {
-          return processStyle(props, serialized);
+          if (!serialized.variants) {
+            return props.theme.modularCssLayers ? shallowLayer(serialized.style, layerName) : serialized.style;
+          }
+          return processStyle(props, serialized, props.theme.modularCssLayers ? layerName : void 0);
         };
       }
       return style2;
@@ -10289,7 +10306,7 @@ function createStyled2(input = {}) {
           }
           const resolvedStyleOverrides = {};
           for (const slotKey in styleOverrides) {
-            resolvedStyleOverrides[slotKey] = processStyle(props, styleOverrides[slotKey]);
+            resolvedStyleOverrides[slotKey] = processStyle(props, styleOverrides[slotKey], props.theme.modularCssLayers ? "theme" : void 0);
           }
           return overridesResolver(props, resolvedStyleOverrides);
         });
@@ -10302,7 +10319,7 @@ function createStyled2(input = {}) {
           if (!themeVariants) {
             return null;
           }
-          return processStyleVariants(props, themeVariants);
+          return processStyleVariants(props, themeVariants, [], props.theme.modularCssLayers ? "theme" : void 0);
         });
       }
       if (!skipSx) {
@@ -10355,7 +10372,7 @@ function lowercaseFirstLetter(string) {
   }
   return string.charAt(0).toLowerCase() + string.slice(1);
 }
-function resolveProps(defaultProps, props) {
+function resolveProps(defaultProps, props, mergeClassNameAndStyle = false) {
   const output = {
     ...props
   };
@@ -10381,10 +10398,17 @@ function resolveProps(defaultProps, props) {
           for (const slotKey in defaultSlotProps) {
             if (Object.prototype.hasOwnProperty.call(defaultSlotProps, slotKey)) {
               const slotPropName = slotKey;
-              output[propName][slotPropName] = resolveProps(defaultSlotProps[slotPropName], slotProps[slotPropName]);
+              output[propName][slotPropName] = resolveProps(defaultSlotProps[slotPropName], slotProps[slotPropName], mergeClassNameAndStyle);
             }
           }
         }
+      } else if (propName === "className" && mergeClassNameAndStyle && props.className) {
+        output.className = clsx(defaultProps == null ? void 0 : defaultProps.className, props == null ? void 0 : props.className);
+      } else if (propName === "style" && mergeClassNameAndStyle && props.style) {
+        output.style = {
+          ...defaultProps == null ? void 0 : defaultProps.style,
+          ...props == null ? void 0 : props.style
+        };
       } else if (output[propName] === void 0) {
         output[propName] = defaultProps[propName];
       }
@@ -10584,15 +10608,42 @@ function private_safeEmphasize(color2, coefficient, warning) {
     return color2;
   }
 }
-function ownerDocument(node2) {
-  return node2 && node2.ownerDocument || document;
-}
-function setRef(ref, value) {
-  if (typeof ref === "function") {
-    ref(value);
-  } else if (ref) {
-    ref.current = value;
+const RtlContext = /* @__PURE__ */ reactExports.createContext();
+const useRtl = () => {
+  const value = reactExports.useContext(RtlContext);
+  return value ?? false;
+};
+const PropsContext = /* @__PURE__ */ reactExports.createContext(void 0);
+function getThemeProps(params) {
+  const {
+    theme,
+    name,
+    props
+  } = params;
+  if (!theme || !theme.components || !theme.components[name]) {
+    return props;
   }
+  const config2 = theme.components[name];
+  if (config2.defaultProps) {
+    return resolveProps(config2.defaultProps, props, theme.components.mergeClassNameAndStyle);
+  }
+  if (!config2.styleOverrides && !config2.variants) {
+    return resolveProps(config2, props, theme.components.mergeClassNameAndStyle);
+  }
+  return props;
+}
+function useDefaultProps$1({
+  props,
+  name
+}) {
+  const ctx = reactExports.useContext(PropsContext);
+  return getThemeProps({
+    props,
+    name,
+    theme: {
+      components: ctx
+    }
+  });
 }
 let globalId = 0;
 function useGlobalId(idOverride) {
@@ -10616,314 +10667,6 @@ function useId(idOverride) {
     return idOverride ?? reactId;
   }
   return useGlobalId(idOverride);
-}
-function useControlled({
-  controlled,
-  default: defaultProp,
-  name,
-  state = "value"
-}) {
-  const {
-    current: isControlled
-  } = reactExports.useRef(controlled !== void 0);
-  const [valueState, setValue] = reactExports.useState(defaultProp);
-  const value = isControlled ? controlled : valueState;
-  const setValueIfUncontrolled = reactExports.useCallback((newValue) => {
-    if (!isControlled) {
-      setValue(newValue);
-    }
-  }, []);
-  return [value, setValueIfUncontrolled];
-}
-function useEventCallback(fn2) {
-  const ref = reactExports.useRef(fn2);
-  useEnhancedEffect(() => {
-    ref.current = fn2;
-  });
-  return reactExports.useRef((...args) => (
-    // @ts-expect-error hide `this`
-    (0, ref.current)(...args)
-  )).current;
-}
-function useForkRef(...refs) {
-  const cleanupRef = reactExports.useRef(void 0);
-  const refEffect = reactExports.useCallback((instance) => {
-    const cleanups = refs.map((ref) => {
-      if (ref == null) {
-        return null;
-      }
-      if (typeof ref === "function") {
-        const refCallback = ref;
-        const refCleanup = refCallback(instance);
-        return typeof refCleanup === "function" ? refCleanup : () => {
-          refCallback(null);
-        };
-      }
-      ref.current = instance;
-      return () => {
-        ref.current = null;
-      };
-    });
-    return () => {
-      cleanups.forEach((refCleanup) => refCleanup == null ? void 0 : refCleanup());
-    };
-  }, refs);
-  return reactExports.useMemo(() => {
-    if (refs.every((ref) => ref == null)) {
-      return null;
-    }
-    return (value) => {
-      if (cleanupRef.current) {
-        cleanupRef.current();
-        cleanupRef.current = void 0;
-      }
-      if (value != null) {
-        cleanupRef.current = refEffect(value);
-      }
-    };
-  }, refs);
-}
-const UNINITIALIZED = {};
-function useLazyRef(init, initArg) {
-  const ref = reactExports.useRef(UNINITIALIZED);
-  if (ref.current === UNINITIALIZED) {
-    ref.current = init(initArg);
-  }
-  return ref;
-}
-const EMPTY = [];
-function useOnMount(fn2) {
-  reactExports.useEffect(fn2, EMPTY);
-}
-class Timeout {
-  constructor() {
-    __publicField(this, "currentId", null);
-    __publicField(this, "clear", () => {
-      if (this.currentId !== null) {
-        clearTimeout(this.currentId);
-        this.currentId = null;
-      }
-    });
-    __publicField(this, "disposeEffect", () => {
-      return this.clear;
-    });
-  }
-  static create() {
-    return new Timeout();
-  }
-  /**
-   * Executes `fn` after `delay`, clearing any previously scheduled call.
-   */
-  start(delay, fn2) {
-    this.clear();
-    this.currentId = setTimeout(() => {
-      this.currentId = null;
-      fn2();
-    }, delay);
-  }
-}
-function useTimeout() {
-  const timeout = useLazyRef(Timeout.create).current;
-  useOnMount(timeout.disposeEffect);
-  return timeout;
-}
-function isFocusVisible(element) {
-  try {
-    return element.matches(":focus-visible");
-  } catch (error) {
-  }
-  return false;
-}
-function composeClasses(slots, getUtilityClass, classes = void 0) {
-  const output = {};
-  for (const slotName in slots) {
-    const slot = slots[slotName];
-    let buffer = "";
-    let start2 = true;
-    for (let i = 0; i < slot.length; i += 1) {
-      const value = slot[i];
-      if (value) {
-        buffer += (start2 === true ? "" : " ") + getUtilityClass(value);
-        start2 = false;
-        if (classes && classes[value]) {
-          buffer += " " + classes[value];
-        }
-      }
-    }
-    output[slotName] = buffer;
-  }
-  return output;
-}
-function isHostComponent(element) {
-  return typeof element === "string";
-}
-function appendOwnerState(elementType, otherProps, ownerState) {
-  if (elementType === void 0 || isHostComponent(elementType)) {
-    return otherProps;
-  }
-  return {
-    ...otherProps,
-    ownerState: {
-      ...otherProps.ownerState,
-      ...ownerState
-    }
-  };
-}
-function extractEventHandlers(object, excludeKeys = []) {
-  if (object === void 0) {
-    return {};
-  }
-  const result = {};
-  Object.keys(object).filter((prop) => prop.match(/^on[A-Z]/) && typeof object[prop] === "function" && !excludeKeys.includes(prop)).forEach((prop) => {
-    result[prop] = object[prop];
-  });
-  return result;
-}
-function omitEventHandlers(object) {
-  if (object === void 0) {
-    return {};
-  }
-  const result = {};
-  Object.keys(object).filter((prop) => !(prop.match(/^on[A-Z]/) && typeof object[prop] === "function")).forEach((prop) => {
-    result[prop] = object[prop];
-  });
-  return result;
-}
-function mergeSlotProps(parameters) {
-  const {
-    getSlotProps,
-    additionalProps,
-    externalSlotProps,
-    externalForwardedProps,
-    className
-  } = parameters;
-  if (!getSlotProps) {
-    const joinedClasses2 = clsx(additionalProps == null ? void 0 : additionalProps.className, className, externalForwardedProps == null ? void 0 : externalForwardedProps.className, externalSlotProps == null ? void 0 : externalSlotProps.className);
-    const mergedStyle2 = {
-      ...additionalProps == null ? void 0 : additionalProps.style,
-      ...externalForwardedProps == null ? void 0 : externalForwardedProps.style,
-      ...externalSlotProps == null ? void 0 : externalSlotProps.style
-    };
-    const props2 = {
-      ...additionalProps,
-      ...externalForwardedProps,
-      ...externalSlotProps
-    };
-    if (joinedClasses2.length > 0) {
-      props2.className = joinedClasses2;
-    }
-    if (Object.keys(mergedStyle2).length > 0) {
-      props2.style = mergedStyle2;
-    }
-    return {
-      props: props2,
-      internalRef: void 0
-    };
-  }
-  const eventHandlers = extractEventHandlers({
-    ...externalForwardedProps,
-    ...externalSlotProps
-  });
-  const componentsPropsWithoutEventHandlers = omitEventHandlers(externalSlotProps);
-  const otherPropsWithoutEventHandlers = omitEventHandlers(externalForwardedProps);
-  const internalSlotProps = getSlotProps(eventHandlers);
-  const joinedClasses = clsx(internalSlotProps == null ? void 0 : internalSlotProps.className, additionalProps == null ? void 0 : additionalProps.className, className, externalForwardedProps == null ? void 0 : externalForwardedProps.className, externalSlotProps == null ? void 0 : externalSlotProps.className);
-  const mergedStyle = {
-    ...internalSlotProps == null ? void 0 : internalSlotProps.style,
-    ...additionalProps == null ? void 0 : additionalProps.style,
-    ...externalForwardedProps == null ? void 0 : externalForwardedProps.style,
-    ...externalSlotProps == null ? void 0 : externalSlotProps.style
-  };
-  const props = {
-    ...internalSlotProps,
-    ...additionalProps,
-    ...otherPropsWithoutEventHandlers,
-    ...componentsPropsWithoutEventHandlers
-  };
-  if (joinedClasses.length > 0) {
-    props.className = joinedClasses;
-  }
-  if (Object.keys(mergedStyle).length > 0) {
-    props.style = mergedStyle;
-  }
-  return {
-    props,
-    internalRef: internalSlotProps.ref
-  };
-}
-function resolveComponentProps(componentProps, ownerState, slotState) {
-  if (typeof componentProps === "function") {
-    return componentProps(ownerState, slotState);
-  }
-  return componentProps;
-}
-function useSlotProps(parameters) {
-  var _a;
-  const {
-    elementType,
-    externalSlotProps,
-    ownerState,
-    skipResolvingSlotProps = false,
-    ...other
-  } = parameters;
-  const resolvedComponentsProps = skipResolvingSlotProps ? {} : resolveComponentProps(externalSlotProps, ownerState);
-  const {
-    props: mergedProps,
-    internalRef
-  } = mergeSlotProps({
-    ...other,
-    externalSlotProps: resolvedComponentsProps
-  });
-  const ref = useForkRef(internalRef, resolvedComponentsProps == null ? void 0 : resolvedComponentsProps.ref, (_a = parameters.additionalProps) == null ? void 0 : _a.ref);
-  const props = appendOwnerState(elementType, {
-    ...mergedProps,
-    ref
-  }, ownerState);
-  return props;
-}
-function getReactElementRef(element) {
-  var _a;
-  if (parseInt(reactExports.version, 10) >= 19) {
-    return ((_a = element == null ? void 0 : element.props) == null ? void 0 : _a.ref) || null;
-  }
-  return (element == null ? void 0 : element.ref) || null;
-}
-const RtlContext = /* @__PURE__ */ reactExports.createContext();
-const useRtl = () => {
-  const value = reactExports.useContext(RtlContext);
-  return value ?? false;
-};
-const PropsContext = /* @__PURE__ */ reactExports.createContext(void 0);
-function getThemeProps(params) {
-  const {
-    theme,
-    name,
-    props
-  } = params;
-  if (!theme || !theme.components || !theme.components[name]) {
-    return props;
-  }
-  const config2 = theme.components[name];
-  if (config2.defaultProps) {
-    return resolveProps(config2.defaultProps, props);
-  }
-  if (!config2.styleOverrides && !config2.variants) {
-    return resolveProps(config2, props);
-  }
-  return props;
-}
-function useDefaultProps$1({
-  props,
-  name
-}) {
-  const ctx = reactExports.useContext(PropsContext);
-  return getThemeProps({
-    props,
-    name,
-    theme: {
-      components: ctx
-    }
-  });
 }
 const arg = {
   theme: void 0
@@ -11040,7 +10783,8 @@ function prepareCssVars(theme, parserConfig = {}) {
   const {
     getSelector = defaultGetSelector2,
     disableCssColorScheme,
-    colorSchemeSelector: selector
+    colorSchemeSelector: selector,
+    enableContrastVars
   } = parserConfig;
   const {
     colorSchemes = {},
@@ -11177,6 +10921,17 @@ function prepareCssVars(theme, parserConfig = {}) {
         ...finalCss
       }), finalCss);
     });
+    if (enableContrastVars) {
+      stylesheets.push({
+        ":root": {
+          // use double underscore to indicate that these are private variables
+          "--__l-threshold": "0.7",
+          "--__l": "clamp(0, (l / var(--__l-threshold) - 1) * -infinity, 1)",
+          "--__a": "clamp(0.87, (l / var(--__l-threshold) - 1) * -infinity, 1)"
+          // 0.87 is the default alpha value for black text.
+        }
+      });
+    }
     return stylesheets;
   };
   return {
@@ -11204,6 +10959,26 @@ function createGetColorSchemeSelector(selector) {
     }
     return "&";
   };
+}
+function composeClasses(slots, getUtilityClass, classes = void 0) {
+  const output = {};
+  for (const slotName in slots) {
+    const slot = slots[slotName];
+    let buffer = "";
+    let start2 = true;
+    for (let i = 0; i < slot.length; i += 1) {
+      const value = slot[i];
+      if (value) {
+        buffer += (start2 === true ? "" : " ") + getUtilityClass(value);
+        start2 = false;
+        if (classes && classes[value]) {
+          buffer += " " + classes[value];
+        }
+      }
+    }
+    output[slotName] = buffer;
+  }
+  return output;
 }
 function getLight() {
   return {
@@ -11285,6 +11060,19 @@ function addLightOrDark(intent, direction, shade, tonalOffset) {
       intent.light = lighten(intent.main, tonalOffsetLight);
     } else if (direction === "dark") {
       intent.dark = darken(intent.main, tonalOffsetDark);
+    }
+  }
+}
+function mixLightOrDark(colorSpace, intent, direction, shade, tonalOffset) {
+  const tonalOffsetLight = tonalOffset.light || tonalOffset;
+  const tonalOffsetDark = tonalOffset.dark || tonalOffset * 1.5;
+  if (!intent[direction]) {
+    if (intent.hasOwnProperty(shade)) {
+      intent[direction] = intent[shade];
+    } else if (direction === "light") {
+      intent.light = `color-mix(in ${colorSpace}, ${intent.main}, #fff ${(tonalOffsetLight * 100).toFixed(0)}%)`;
+    } else if (direction === "dark") {
+      intent.dark = `color-mix(in ${colorSpace}, ${intent.main}, #000 ${(tonalOffsetDark * 100).toFixed(0)}%)`;
     }
   }
 }
@@ -11373,11 +11161,15 @@ function getDefaultWarning(mode = "light") {
     dark: orange[900]
   };
 }
+function contrastColor(background) {
+  return `oklch(from ${background} var(--__l) 0 h / var(--__a))`;
+}
 function createPalette(palette) {
   const {
     mode = "light",
     contrastThreshold = 3,
     tonalOffset = 0.2,
+    colorSpace,
     ...other
   } = palette;
   const primary = palette.primary || getDefaultPrimary(mode);
@@ -11387,6 +11179,9 @@ function createPalette(palette) {
   const success = palette.success || getDefaultSuccess(mode);
   const warning = palette.warning || getDefaultWarning(mode);
   function getContrastText(background) {
+    if (colorSpace) {
+      return contrastColor(background);
+    }
     const contrastText = getContrastRatio(background, dark.text.primary) >= contrastThreshold ? dark.text.primary : light.text.primary;
     return contrastText;
   }
@@ -11409,8 +11204,13 @@ function createPalette(palette) {
     if (typeof color2.main !== "string") {
       throw new Error(formatMuiErrorMessage(12, name ? ` (${name})` : "", JSON.stringify(color2.main)));
     }
-    addLightOrDark(color2, "light", lightShade, tonalOffset);
-    addLightOrDark(color2, "dark", darkShade, tonalOffset);
+    if (colorSpace) {
+      mixLightOrDark(colorSpace, color2, "light", lightShade, tonalOffset);
+      mixLightOrDark(colorSpace, color2, "dark", darkShade, tonalOffset);
+    } else {
+      addLightOrDark(color2, "light", lightShade, tonalOffset);
+      addLightOrDark(color2, "dark", darkShade, tonalOffset);
+    }
     if (!color2.contrastText) {
       color2.contrastText = getContrastText(color2.main);
     }
@@ -11695,6 +11495,54 @@ theme.transitions = createTransitions(theme.transitions || {});
 
 export default theme;`;
 }
+function coefficientToPercentage(coefficient) {
+  if (typeof coefficient === "number") {
+    return `${(coefficient * 100).toFixed(0)}%`;
+  }
+  return `calc((${coefficient}) * 100%)`;
+}
+const parseAddition = (str) => {
+  if (!Number.isNaN(+str)) {
+    return +str;
+  }
+  const numbers = str.match(/\d*\.?\d+/g);
+  if (!numbers) {
+    return 0;
+  }
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i += 1) {
+    sum += +numbers[i];
+  }
+  return sum;
+};
+function attachColorManipulators(theme) {
+  Object.assign(theme, {
+    alpha(color2, coefficient) {
+      const obj = this || theme;
+      if (obj.colorSpace) {
+        return `oklch(from ${color2} l c h / ${typeof coefficient === "string" ? `calc(${coefficient})` : coefficient})`;
+      }
+      if (obj.vars) {
+        return `rgba(${color2.replace(/var\(--([^,\s)]+)(?:,[^)]+)?\)+/g, "var(--$1Channel)")} / ${typeof coefficient === "string" ? `calc(${coefficient})` : coefficient})`;
+      }
+      return alpha(color2, parseAddition(coefficient));
+    },
+    lighten(color2, coefficient) {
+      const obj = this || theme;
+      if (obj.colorSpace) {
+        return `color-mix(in ${obj.colorSpace}, ${color2}, #fff ${coefficientToPercentage(coefficient)})`;
+      }
+      return lighten(color2, coefficient);
+    },
+    darken(color2, coefficient) {
+      const obj = this || theme;
+      if (obj.colorSpace) {
+        return `color-mix(in ${obj.colorSpace}, ${color2}, #000 ${coefficientToPercentage(coefficient)})`;
+      }
+      return darken(color2, coefficient);
+    }
+  });
+}
 function createThemeNoVars(options = {}, ...args) {
   const {
     breakpoints: breakpointsInput,
@@ -11704,6 +11552,7 @@ function createThemeNoVars(options = {}, ...args) {
     transitions: transitionsInput = {},
     typography: typographyInput = {},
     shape: shapeInput,
+    colorSpace,
     ...other
   } = options;
   if (options.vars && // The error should throw only for the root theme creation because user is not allowed to use a custom node `vars`.
@@ -11711,7 +11560,10 @@ function createThemeNoVars(options = {}, ...args) {
   options.generateThemeVars === void 0) {
     throw new Error(formatMuiErrorMessage(20));
   }
-  const palette = createPalette(paletteInput);
+  const palette = createPalette({
+    ...paletteInput,
+    colorSpace
+  });
   const systemTheme = createTheme$1(options);
   let muiTheme = deepmerge(systemTheme, {
     mixins: createMixins(systemTheme.breakpoints, mixinsInput),
@@ -11737,6 +11589,7 @@ function createThemeNoVars(options = {}, ...args) {
     });
   };
   muiTheme.toRuntimeSource = stringifyTheme;
+  attachColorManipulators(muiTheme);
   return muiTheme;
 }
 function getOverlayAlpha(elevation) {
@@ -11774,9 +11627,13 @@ function createColorScheme(options) {
     // need to cast to avoid module augmentation test
     opacity,
     overlays,
-    ...rest
+    colorSpace,
+    ...other
   } = options;
-  const palette = createPalette(paletteInput);
+  const palette = createPalette({
+    ...paletteInput,
+    colorSpace
+  });
   return {
     palette,
     opacity: {
@@ -11784,12 +11641,12 @@ function createColorScheme(options) {
       ...opacity
     },
     overlays: overlays || getOverlays(palette.mode),
-    ...rest
+    ...other
   };
 }
 function shouldSkipGeneratingVar(keys) {
   var _a;
-  return !!keys[0].match(/(cssVarPrefix|colorSchemeSelector|rootSelector|typography|mixins|breakpoints|direction|transitions)/) || !!keys[0].match(/sxConfig$/) || // ends with sxConfig
+  return !!keys[0].match(/(cssVarPrefix|colorSchemeSelector|modularCssLayers|rootSelector|typography|mixins|breakpoints|direction|transitions)/) || !!keys[0].match(/sxConfig$/) || // ends with sxConfig
   keys[0] === "palette" && !!((_a = keys[1]) == null ? void 0 : _a.match(/(mode|contrastThreshold|tonalOffset)/));
 }
 const excludeVariablesFromRoot = (cssVarPrefix) => [...[...Array(25)].map((_, index) => `--${cssVarPrefix ? `${cssVarPrefix}-` : ""}overlays-${index}`), `--${cssVarPrefix ? `${cssVarPrefix}-` : ""}palette-AppBar-darkBg`, `--${cssVarPrefix ? `${cssVarPrefix}-` : ""}palette-AppBar-darkColor`];
@@ -11891,7 +11748,7 @@ const silent = (fn2) => {
   return void 0;
 };
 const createGetCssVar = (cssVarPrefix = "mui") => createGetCssVar$1(cssVarPrefix);
-function attachColorScheme$1(colorSchemes, scheme, restTheme, colorScheme) {
+function attachColorScheme$1(colorSpace, colorSchemes, scheme, restTheme, colorScheme) {
   if (!scheme) {
     return void 0;
   }
@@ -11903,7 +11760,8 @@ function attachColorScheme$1(colorSchemes, scheme, restTheme, colorScheme) {
       palette: {
         mode,
         ...scheme == null ? void 0 : scheme.palette
-      }
+      },
+      colorSpace
     });
     return void 0;
   }
@@ -11915,7 +11773,8 @@ function attachColorScheme$1(colorSchemes, scheme, restTheme, colorScheme) {
     palette: {
       mode,
       ...scheme == null ? void 0 : scheme.palette
-    }
+    },
+    colorSpace
   });
   colorSchemes[colorScheme] = {
     ...scheme,
@@ -11936,6 +11795,7 @@ function createThemeWithVars(options = {}, ...args) {
     defaultColorScheme: defaultColorSchemeInput,
     disableCssColorScheme = false,
     cssVarPrefix = "mui",
+    nativeColor = false,
     shouldSkipGeneratingVar: shouldSkipGeneratingVar$1 = shouldSkipGeneratingVar,
     colorSchemeSelector: selector = colorSchemesInput.light && colorSchemesInput.dark ? "media" : void 0,
     rootSelector = ":root",
@@ -11960,12 +11820,16 @@ function createThemeWithVars(options = {}, ...args) {
   if (!defaultScheme) {
     throw new Error(formatMuiErrorMessage(21, defaultColorScheme));
   }
-  const muiTheme = attachColorScheme$1(colorSchemes, defaultScheme, input, defaultColorScheme);
+  let colorSpace;
+  if (nativeColor) {
+    colorSpace = "oklch";
+  }
+  const muiTheme = attachColorScheme$1(colorSpace, colorSchemes, defaultScheme, input, defaultColorScheme);
   if (builtInLight && !colorSchemes.light) {
-    attachColorScheme$1(colorSchemes, builtInLight, void 0, "light");
+    attachColorScheme$1(colorSpace, colorSchemes, builtInLight, void 0, "light");
   }
   if (builtInDark && !colorSchemes.dark) {
-    attachColorScheme$1(colorSchemes, builtInDark, void 0, "dark");
+    attachColorScheme$1(colorSpace, colorSchemes, builtInDark, void 0, "dark");
   }
   let theme = {
     defaultColorScheme,
@@ -11997,12 +11861,28 @@ function createThemeWithVars(options = {}, ...args) {
       setColor(palette.common, "background", "#000");
       setColor(palette.common, "onBackground", "#fff");
     }
+    function colorMix(method, color2, coefficient) {
+      if (colorSpace) {
+        let mixer;
+        if (method === private_safeAlpha) {
+          mixer = `transparent ${((1 - coefficient) * 100).toFixed(0)}%`;
+        }
+        if (method === private_safeDarken) {
+          mixer = `#000 ${(coefficient * 100).toFixed(0)}%`;
+        }
+        if (method === private_safeLighten) {
+          mixer = `#fff ${(coefficient * 100).toFixed(0)}%`;
+        }
+        return `color-mix(in ${colorSpace}, ${color2}, ${mixer})`;
+      }
+      return method(color2, coefficient);
+    }
     assignNode(palette, ["Alert", "AppBar", "Avatar", "Button", "Chip", "FilledInput", "LinearProgress", "Skeleton", "Slider", "SnackbarContent", "SpeedDialAction", "StepConnector", "StepContent", "Switch", "TableCell", "Tooltip"]);
     if (palette.mode === "light") {
-      setColor(palette.Alert, "errorColor", private_safeDarken(palette.error.light, 0.6));
-      setColor(palette.Alert, "infoColor", private_safeDarken(palette.info.light, 0.6));
-      setColor(palette.Alert, "successColor", private_safeDarken(palette.success.light, 0.6));
-      setColor(palette.Alert, "warningColor", private_safeDarken(palette.warning.light, 0.6));
+      setColor(palette.Alert, "errorColor", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-error-light") : palette.error.light, 0.6));
+      setColor(palette.Alert, "infoColor", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-info-light") : palette.info.light, 0.6));
+      setColor(palette.Alert, "successColor", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-success-light") : palette.success.light, 0.6));
+      setColor(palette.Alert, "warningColor", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-warning-light") : palette.warning.light, 0.6));
       setColor(palette.Alert, "errorFilledBg", setCssVarColor("palette-error-main"));
       setColor(palette.Alert, "infoFilledBg", setCssVarColor("palette-info-main"));
       setColor(palette.Alert, "successFilledBg", setCssVarColor("palette-success-main"));
@@ -12011,10 +11891,10 @@ function createThemeWithVars(options = {}, ...args) {
       setColor(palette.Alert, "infoFilledColor", silent(() => palette.getContrastText(palette.info.main)));
       setColor(palette.Alert, "successFilledColor", silent(() => palette.getContrastText(palette.success.main)));
       setColor(palette.Alert, "warningFilledColor", silent(() => palette.getContrastText(palette.warning.main)));
-      setColor(palette.Alert, "errorStandardBg", private_safeLighten(palette.error.light, 0.9));
-      setColor(palette.Alert, "infoStandardBg", private_safeLighten(palette.info.light, 0.9));
-      setColor(palette.Alert, "successStandardBg", private_safeLighten(palette.success.light, 0.9));
-      setColor(palette.Alert, "warningStandardBg", private_safeLighten(palette.warning.light, 0.9));
+      setColor(palette.Alert, "errorStandardBg", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-error-light") : palette.error.light, 0.9));
+      setColor(palette.Alert, "infoStandardBg", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-info-light") : palette.info.light, 0.9));
+      setColor(palette.Alert, "successStandardBg", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-success-light") : palette.success.light, 0.9));
+      setColor(palette.Alert, "warningStandardBg", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-warning-light") : palette.warning.light, 0.9));
       setColor(palette.Alert, "errorIconColor", setCssVarColor("palette-error-main"));
       setColor(palette.Alert, "infoIconColor", setCssVarColor("palette-info-main"));
       setColor(palette.Alert, "successIconColor", setCssVarColor("palette-success-main"));
@@ -12029,41 +11909,41 @@ function createThemeWithVars(options = {}, ...args) {
       setColor(palette.FilledInput, "bg", "rgba(0, 0, 0, 0.06)");
       setColor(palette.FilledInput, "hoverBg", "rgba(0, 0, 0, 0.09)");
       setColor(palette.FilledInput, "disabledBg", "rgba(0, 0, 0, 0.12)");
-      setColor(palette.LinearProgress, "primaryBg", private_safeLighten(palette.primary.main, 0.62));
-      setColor(palette.LinearProgress, "secondaryBg", private_safeLighten(palette.secondary.main, 0.62));
-      setColor(palette.LinearProgress, "errorBg", private_safeLighten(palette.error.main, 0.62));
-      setColor(palette.LinearProgress, "infoBg", private_safeLighten(palette.info.main, 0.62));
-      setColor(palette.LinearProgress, "successBg", private_safeLighten(palette.success.main, 0.62));
-      setColor(palette.LinearProgress, "warningBg", private_safeLighten(palette.warning.main, 0.62));
-      setColor(palette.Skeleton, "bg", `rgba(${setCssVarColor("palette-text-primaryChannel")} / 0.11)`);
-      setColor(palette.Slider, "primaryTrack", private_safeLighten(palette.primary.main, 0.62));
-      setColor(palette.Slider, "secondaryTrack", private_safeLighten(palette.secondary.main, 0.62));
-      setColor(palette.Slider, "errorTrack", private_safeLighten(palette.error.main, 0.62));
-      setColor(palette.Slider, "infoTrack", private_safeLighten(palette.info.main, 0.62));
-      setColor(palette.Slider, "successTrack", private_safeLighten(palette.success.main, 0.62));
-      setColor(palette.Slider, "warningTrack", private_safeLighten(palette.warning.main, 0.62));
-      const snackbarContentBackground = private_safeEmphasize(palette.background.default, 0.8);
+      setColor(palette.LinearProgress, "primaryBg", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-primary-main") : palette.primary.main, 0.62));
+      setColor(palette.LinearProgress, "secondaryBg", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-secondary-main") : palette.secondary.main, 0.62));
+      setColor(palette.LinearProgress, "errorBg", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-error-main") : palette.error.main, 0.62));
+      setColor(palette.LinearProgress, "infoBg", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-info-main") : palette.info.main, 0.62));
+      setColor(palette.LinearProgress, "successBg", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-success-main") : palette.success.main, 0.62));
+      setColor(palette.LinearProgress, "warningBg", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-warning-light") : palette.warning.main, 0.62));
+      setColor(palette.Skeleton, "bg", colorSpace ? colorMix(private_safeAlpha, nativeColor ? getCssVar("palette-text-primary") : palette.text.primary, 0.11) : `rgba(${setCssVarColor("palette-text-primaryChannel")} / 0.11)`);
+      setColor(palette.Slider, "primaryTrack", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-primary-main") : palette.primary.main, 0.62));
+      setColor(palette.Slider, "secondaryTrack", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-secondary-main") : palette.secondary.main, 0.62));
+      setColor(palette.Slider, "errorTrack", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-error-main") : palette.error.main, 0.62));
+      setColor(palette.Slider, "infoTrack", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-info-main") : palette.info.main, 0.62));
+      setColor(palette.Slider, "successTrack", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-success-main") : palette.success.main, 0.62));
+      setColor(palette.Slider, "warningTrack", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-warning-main") : palette.warning.main, 0.62));
+      const snackbarContentBackground = colorSpace ? colorMix(private_safeDarken, nativeColor ? getCssVar("palette-background-default") : palette.background.default, 0.6825) : private_safeEmphasize(palette.background.default, 0.8);
       setColor(palette.SnackbarContent, "bg", snackbarContentBackground);
-      setColor(palette.SnackbarContent, "color", silent(() => palette.getContrastText(snackbarContentBackground)));
+      setColor(palette.SnackbarContent, "color", silent(() => colorSpace ? dark.text.primary : palette.getContrastText(snackbarContentBackground)));
       setColor(palette.SpeedDialAction, "fabHoverBg", private_safeEmphasize(palette.background.paper, 0.15));
       setColor(palette.StepConnector, "border", setCssVarColor("palette-grey-400"));
       setColor(palette.StepContent, "border", setCssVarColor("palette-grey-400"));
       setColor(palette.Switch, "defaultColor", setCssVarColor("palette-common-white"));
       setColor(palette.Switch, "defaultDisabledColor", setCssVarColor("palette-grey-100"));
-      setColor(palette.Switch, "primaryDisabledColor", private_safeLighten(palette.primary.main, 0.62));
-      setColor(palette.Switch, "secondaryDisabledColor", private_safeLighten(palette.secondary.main, 0.62));
-      setColor(palette.Switch, "errorDisabledColor", private_safeLighten(palette.error.main, 0.62));
-      setColor(palette.Switch, "infoDisabledColor", private_safeLighten(palette.info.main, 0.62));
-      setColor(palette.Switch, "successDisabledColor", private_safeLighten(palette.success.main, 0.62));
-      setColor(palette.Switch, "warningDisabledColor", private_safeLighten(palette.warning.main, 0.62));
-      setColor(palette.TableCell, "border", private_safeLighten(private_safeAlpha(palette.divider, 1), 0.88));
-      setColor(palette.Tooltip, "bg", private_safeAlpha(palette.grey[700], 0.92));
+      setColor(palette.Switch, "primaryDisabledColor", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-primary-main") : palette.primary.main, 0.62));
+      setColor(palette.Switch, "secondaryDisabledColor", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-secondary-main") : palette.secondary.main, 0.62));
+      setColor(palette.Switch, "errorDisabledColor", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-error-main") : palette.error.main, 0.62));
+      setColor(palette.Switch, "infoDisabledColor", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-info-main") : palette.info.main, 0.62));
+      setColor(palette.Switch, "successDisabledColor", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-success-main") : palette.success.main, 0.62));
+      setColor(palette.Switch, "warningDisabledColor", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-warning-main") : palette.warning.main, 0.62));
+      setColor(palette.TableCell, "border", colorMix(private_safeLighten, private_safeAlpha(nativeColor ? getCssVar("palette-divider") : palette.divider, 1), 0.88));
+      setColor(palette.Tooltip, "bg", colorMix(private_safeAlpha, nativeColor ? getCssVar("palette-grey-700") : palette.grey[700], 0.92));
     }
     if (palette.mode === "dark") {
-      setColor(palette.Alert, "errorColor", private_safeLighten(palette.error.light, 0.6));
-      setColor(palette.Alert, "infoColor", private_safeLighten(palette.info.light, 0.6));
-      setColor(palette.Alert, "successColor", private_safeLighten(palette.success.light, 0.6));
-      setColor(palette.Alert, "warningColor", private_safeLighten(palette.warning.light, 0.6));
+      setColor(palette.Alert, "errorColor", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-error-light") : palette.error.light, 0.6));
+      setColor(palette.Alert, "infoColor", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-info-light") : palette.info.light, 0.6));
+      setColor(palette.Alert, "successColor", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-success-light") : palette.success.light, 0.6));
+      setColor(palette.Alert, "warningColor", colorMix(private_safeLighten, nativeColor ? getCssVar("palette-warning-light") : palette.warning.light, 0.6));
       setColor(palette.Alert, "errorFilledBg", setCssVarColor("palette-error-dark"));
       setColor(palette.Alert, "infoFilledBg", setCssVarColor("palette-info-dark"));
       setColor(palette.Alert, "successFilledBg", setCssVarColor("palette-success-dark"));
@@ -12072,10 +11952,10 @@ function createThemeWithVars(options = {}, ...args) {
       setColor(palette.Alert, "infoFilledColor", silent(() => palette.getContrastText(palette.info.dark)));
       setColor(palette.Alert, "successFilledColor", silent(() => palette.getContrastText(palette.success.dark)));
       setColor(palette.Alert, "warningFilledColor", silent(() => palette.getContrastText(palette.warning.dark)));
-      setColor(palette.Alert, "errorStandardBg", private_safeDarken(palette.error.light, 0.9));
-      setColor(palette.Alert, "infoStandardBg", private_safeDarken(palette.info.light, 0.9));
-      setColor(palette.Alert, "successStandardBg", private_safeDarken(palette.success.light, 0.9));
-      setColor(palette.Alert, "warningStandardBg", private_safeDarken(palette.warning.light, 0.9));
+      setColor(palette.Alert, "errorStandardBg", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-error-light") : palette.error.light, 0.9));
+      setColor(palette.Alert, "infoStandardBg", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-info-light") : palette.info.light, 0.9));
+      setColor(palette.Alert, "successStandardBg", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-success-light") : palette.success.light, 0.9));
+      setColor(palette.Alert, "warningStandardBg", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-warning-light") : palette.warning.light, 0.9));
       setColor(palette.Alert, "errorIconColor", setCssVarColor("palette-error-main"));
       setColor(palette.Alert, "infoIconColor", setCssVarColor("palette-info-main"));
       setColor(palette.Alert, "successIconColor", setCssVarColor("palette-success-main"));
@@ -12092,35 +11972,35 @@ function createThemeWithVars(options = {}, ...args) {
       setColor(palette.FilledInput, "bg", "rgba(255, 255, 255, 0.09)");
       setColor(palette.FilledInput, "hoverBg", "rgba(255, 255, 255, 0.13)");
       setColor(palette.FilledInput, "disabledBg", "rgba(255, 255, 255, 0.12)");
-      setColor(palette.LinearProgress, "primaryBg", private_safeDarken(palette.primary.main, 0.5));
-      setColor(palette.LinearProgress, "secondaryBg", private_safeDarken(palette.secondary.main, 0.5));
-      setColor(palette.LinearProgress, "errorBg", private_safeDarken(palette.error.main, 0.5));
-      setColor(palette.LinearProgress, "infoBg", private_safeDarken(palette.info.main, 0.5));
-      setColor(palette.LinearProgress, "successBg", private_safeDarken(palette.success.main, 0.5));
-      setColor(palette.LinearProgress, "warningBg", private_safeDarken(palette.warning.main, 0.5));
-      setColor(palette.Skeleton, "bg", `rgba(${setCssVarColor("palette-text-primaryChannel")} / 0.13)`);
-      setColor(palette.Slider, "primaryTrack", private_safeDarken(palette.primary.main, 0.5));
-      setColor(palette.Slider, "secondaryTrack", private_safeDarken(palette.secondary.main, 0.5));
-      setColor(palette.Slider, "errorTrack", private_safeDarken(palette.error.main, 0.5));
-      setColor(palette.Slider, "infoTrack", private_safeDarken(palette.info.main, 0.5));
-      setColor(palette.Slider, "successTrack", private_safeDarken(palette.success.main, 0.5));
-      setColor(palette.Slider, "warningTrack", private_safeDarken(palette.warning.main, 0.5));
-      const snackbarContentBackground = private_safeEmphasize(palette.background.default, 0.98);
+      setColor(palette.LinearProgress, "primaryBg", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-primary-main") : palette.primary.main, 0.5));
+      setColor(palette.LinearProgress, "secondaryBg", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-secondary-main") : palette.secondary.main, 0.5));
+      setColor(palette.LinearProgress, "errorBg", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-error-main") : palette.error.main, 0.5));
+      setColor(palette.LinearProgress, "infoBg", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-info-main") : palette.info.main, 0.5));
+      setColor(palette.LinearProgress, "successBg", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-success-main") : palette.success.main, 0.5));
+      setColor(palette.LinearProgress, "warningBg", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-warning-main") : palette.warning.main, 0.5));
+      setColor(palette.Skeleton, "bg", colorSpace ? colorMix(private_safeAlpha, nativeColor ? getCssVar("palette-text-primary") : palette.text.primary, 0.13) : `rgba(${setCssVarColor("palette-text-primaryChannel")} / 0.13)`);
+      setColor(palette.Slider, "primaryTrack", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-primary-main") : palette.primary.main, 0.5));
+      setColor(palette.Slider, "secondaryTrack", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-secondary-main") : palette.secondary.main, 0.5));
+      setColor(palette.Slider, "errorTrack", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-error-main") : palette.error.main, 0.5));
+      setColor(palette.Slider, "infoTrack", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-info-main") : palette.info.main, 0.5));
+      setColor(palette.Slider, "successTrack", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-success-main") : palette.success.main, 0.5));
+      setColor(palette.Slider, "warningTrack", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-warning-light") : palette.warning.main, 0.5));
+      const snackbarContentBackground = colorSpace ? colorMix(private_safeLighten, nativeColor ? getCssVar("palette-background-default") : palette.background.default, 0.985) : private_safeEmphasize(palette.background.default, 0.98);
       setColor(palette.SnackbarContent, "bg", snackbarContentBackground);
-      setColor(palette.SnackbarContent, "color", silent(() => palette.getContrastText(snackbarContentBackground)));
+      setColor(palette.SnackbarContent, "color", silent(() => colorSpace ? light.text.primary : palette.getContrastText(snackbarContentBackground)));
       setColor(palette.SpeedDialAction, "fabHoverBg", private_safeEmphasize(palette.background.paper, 0.15));
       setColor(palette.StepConnector, "border", setCssVarColor("palette-grey-600"));
       setColor(palette.StepContent, "border", setCssVarColor("palette-grey-600"));
       setColor(palette.Switch, "defaultColor", setCssVarColor("palette-grey-300"));
       setColor(palette.Switch, "defaultDisabledColor", setCssVarColor("palette-grey-600"));
-      setColor(palette.Switch, "primaryDisabledColor", private_safeDarken(palette.primary.main, 0.55));
-      setColor(palette.Switch, "secondaryDisabledColor", private_safeDarken(palette.secondary.main, 0.55));
-      setColor(palette.Switch, "errorDisabledColor", private_safeDarken(palette.error.main, 0.55));
-      setColor(palette.Switch, "infoDisabledColor", private_safeDarken(palette.info.main, 0.55));
-      setColor(palette.Switch, "successDisabledColor", private_safeDarken(palette.success.main, 0.55));
-      setColor(palette.Switch, "warningDisabledColor", private_safeDarken(palette.warning.main, 0.55));
-      setColor(palette.TableCell, "border", private_safeDarken(private_safeAlpha(palette.divider, 1), 0.68));
-      setColor(palette.Tooltip, "bg", private_safeAlpha(palette.grey[700], 0.92));
+      setColor(palette.Switch, "primaryDisabledColor", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-primary-main") : palette.primary.main, 0.55));
+      setColor(palette.Switch, "secondaryDisabledColor", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-secondary-main") : palette.secondary.main, 0.55));
+      setColor(palette.Switch, "errorDisabledColor", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-error-main") : palette.error.main, 0.55));
+      setColor(palette.Switch, "infoDisabledColor", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-info-main") : palette.info.main, 0.55));
+      setColor(palette.Switch, "successDisabledColor", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-success-main") : palette.success.main, 0.55));
+      setColor(palette.Switch, "warningDisabledColor", colorMix(private_safeDarken, nativeColor ? getCssVar("palette-warning-light") : palette.warning.main, 0.55));
+      setColor(palette.TableCell, "border", colorMix(private_safeDarken, private_safeAlpha(nativeColor ? getCssVar("palette-divider") : palette.divider, 1), 0.68));
+      setColor(palette.Tooltip, "bg", colorMix(private_safeAlpha, nativeColor ? getCssVar("palette-grey-700") : palette.grey[700], 0.92));
     }
     setColorChannel(palette.background, "default");
     setColorChannel(palette.background, "paper");
@@ -12162,7 +12042,8 @@ function createThemeWithVars(options = {}, ...args) {
     prefix: cssVarPrefix,
     disableCssColorScheme,
     shouldSkipGeneratingVar: shouldSkipGeneratingVar$1,
-    getSelector: defaultGetSelector(theme)
+    getSelector: defaultGetSelector(theme),
+    enableContrastVars: nativeColor
   };
   const {
     vars,
@@ -12217,7 +12098,7 @@ function createTheme(options = {}, ...args) {
       light: true
     } : void 0,
     defaultColorScheme: initialDefaultColorScheme = palette == null ? void 0 : palette.mode,
-    ...rest
+    ...other
   } = options;
   const defaultColorSchemeInput = initialDefaultColorScheme || "light";
   const defaultScheme = initialColorSchemes == null ? void 0 : initialColorSchemes[defaultColorSchemeInput];
@@ -12272,7 +12153,7 @@ function createTheme(options = {}, ...args) {
     colorSchemesInput.light = true;
   }
   return createThemeWithVars({
-    ...rest,
+    ...other,
     colorSchemes: colorSchemesInput,
     defaultColorScheme: defaultColorSchemeInput,
     ...typeof cssVariables !== "boolean" && cssVariables
@@ -12295,6 +12176,81 @@ const styled = createStyled2({
 const memoTheme = unstable_memoTheme;
 function useDefaultProps(params) {
   return useDefaultProps$1(params);
+}
+function ownerDocument(node2) {
+  return node2 && node2.ownerDocument || document;
+}
+function setRef(ref, value) {
+  if (typeof ref === "function") {
+    ref(value);
+  } else if (ref) {
+    ref.current = value;
+  }
+}
+function useControlled(props) {
+  const {
+    controlled,
+    default: defaultProp
+  } = props;
+  const {
+    current: isControlled
+  } = reactExports.useRef(controlled !== void 0);
+  const [valueState, setValue] = reactExports.useState(defaultProp);
+  const value = isControlled ? controlled : valueState;
+  const setValueIfUncontrolled = reactExports.useCallback((newValue) => {
+    if (!isControlled) {
+      setValue(newValue);
+    }
+  }, []);
+  return [value, setValueIfUncontrolled];
+}
+function useEventCallback(fn2) {
+  const ref = reactExports.useRef(fn2);
+  useEnhancedEffect(() => {
+    ref.current = fn2;
+  });
+  return reactExports.useRef((...args) => (
+    // @ts-expect-error hide `this`
+    (0, ref.current)(...args)
+  )).current;
+}
+function useForkRef(...refs) {
+  const cleanupRef = reactExports.useRef(void 0);
+  const refEffect = reactExports.useCallback((instance) => {
+    const cleanups = refs.map((ref) => {
+      if (ref == null) {
+        return null;
+      }
+      if (typeof ref === "function") {
+        const refCallback = ref;
+        const refCleanup = refCallback(instance);
+        return typeof refCleanup === "function" ? refCleanup : () => {
+          refCallback(null);
+        };
+      }
+      ref.current = instance;
+      return () => {
+        ref.current = null;
+      };
+    });
+    return () => {
+      cleanups.forEach((refCleanup) => refCleanup == null ? void 0 : refCleanup());
+    };
+  }, refs);
+  return reactExports.useMemo(() => {
+    if (refs.every((ref) => ref == null)) {
+      return null;
+    }
+    return (value) => {
+      if (cleanupRef.current) {
+        cleanupRef.current();
+        cleanupRef.current = void 0;
+      }
+      if (value != null) {
+        cleanupRef.current = refEffect(value);
+      }
+    };
+  }, refs);
 }
 function _objectWithoutPropertiesLoose(r2, e) {
   if (null == r2) return {};
@@ -12573,6 +12529,50 @@ Transition.EXITED = EXITED;
 Transition.ENTERING = ENTERING;
 Transition.ENTERED = ENTERED;
 Transition.EXITING = EXITING;
+const UNINITIALIZED = {};
+function useLazyRef(init, initArg) {
+  const ref = reactExports.useRef(UNINITIALIZED);
+  if (ref.current === UNINITIALIZED) {
+    ref.current = init(initArg);
+  }
+  return ref;
+}
+const EMPTY = [];
+function useOnMount(fn2) {
+  reactExports.useEffect(fn2, EMPTY);
+}
+class Timeout {
+  constructor() {
+    __publicField(this, "currentId", null);
+    __publicField(this, "clear", () => {
+      if (this.currentId !== null) {
+        clearTimeout(this.currentId);
+        this.currentId = null;
+      }
+    });
+    __publicField(this, "disposeEffect", () => {
+      return this.clear;
+    });
+  }
+  static create() {
+    return new Timeout();
+  }
+  /**
+   * Executes `fn` after `delay`, clearing any previously scheduled call.
+   */
+  start(delay, fn2) {
+    this.clear();
+    this.currentId = setTimeout(() => {
+      this.currentId = null;
+      fn2();
+    }, delay);
+  }
+}
+function useTimeout() {
+  const timeout = useLazyRef(Timeout.create).current;
+  useOnMount(timeout.disposeEffect);
+  return timeout;
+}
 const reflow = (node2) => node2.scrollTop;
 function getTransitionProps(props, options) {
   const {
@@ -12584,6 +12584,109 @@ function getTransitionProps(props, options) {
     duration: style2.transitionDuration ?? (typeof timeout === "number" ? timeout : timeout[options.mode] || 0),
     easing: style2.transitionTimingFunction ?? (typeof easing2 === "object" ? easing2[options.mode] : easing2),
     delay: style2.transitionDelay
+  };
+}
+function isHostComponent(element) {
+  return typeof element === "string";
+}
+function appendOwnerState(elementType, otherProps, ownerState) {
+  if (elementType === void 0 || isHostComponent(elementType)) {
+    return otherProps;
+  }
+  return {
+    ...otherProps,
+    ownerState: {
+      ...otherProps.ownerState,
+      ...ownerState
+    }
+  };
+}
+function resolveComponentProps(componentProps, ownerState, slotState) {
+  if (typeof componentProps === "function") {
+    return componentProps(ownerState, slotState);
+  }
+  return componentProps;
+}
+function extractEventHandlers(object, excludeKeys = []) {
+  if (object === void 0) {
+    return {};
+  }
+  const result = {};
+  Object.keys(object).filter((prop) => prop.match(/^on[A-Z]/) && typeof object[prop] === "function" && !excludeKeys.includes(prop)).forEach((prop) => {
+    result[prop] = object[prop];
+  });
+  return result;
+}
+function omitEventHandlers(object) {
+  if (object === void 0) {
+    return {};
+  }
+  const result = {};
+  Object.keys(object).filter((prop) => !(prop.match(/^on[A-Z]/) && typeof object[prop] === "function")).forEach((prop) => {
+    result[prop] = object[prop];
+  });
+  return result;
+}
+function mergeSlotProps(parameters) {
+  const {
+    getSlotProps,
+    additionalProps,
+    externalSlotProps,
+    externalForwardedProps,
+    className
+  } = parameters;
+  if (!getSlotProps) {
+    const joinedClasses2 = clsx(additionalProps == null ? void 0 : additionalProps.className, className, externalForwardedProps == null ? void 0 : externalForwardedProps.className, externalSlotProps == null ? void 0 : externalSlotProps.className);
+    const mergedStyle2 = {
+      ...additionalProps == null ? void 0 : additionalProps.style,
+      ...externalForwardedProps == null ? void 0 : externalForwardedProps.style,
+      ...externalSlotProps == null ? void 0 : externalSlotProps.style
+    };
+    const props2 = {
+      ...additionalProps,
+      ...externalForwardedProps,
+      ...externalSlotProps
+    };
+    if (joinedClasses2.length > 0) {
+      props2.className = joinedClasses2;
+    }
+    if (Object.keys(mergedStyle2).length > 0) {
+      props2.style = mergedStyle2;
+    }
+    return {
+      props: props2,
+      internalRef: void 0
+    };
+  }
+  const eventHandlers = extractEventHandlers({
+    ...externalForwardedProps,
+    ...externalSlotProps
+  });
+  const componentsPropsWithoutEventHandlers = omitEventHandlers(externalSlotProps);
+  const otherPropsWithoutEventHandlers = omitEventHandlers(externalForwardedProps);
+  const internalSlotProps = getSlotProps(eventHandlers);
+  const joinedClasses = clsx(internalSlotProps == null ? void 0 : internalSlotProps.className, additionalProps == null ? void 0 : additionalProps.className, className, externalForwardedProps == null ? void 0 : externalForwardedProps.className, externalSlotProps == null ? void 0 : externalSlotProps.className);
+  const mergedStyle = {
+    ...internalSlotProps == null ? void 0 : internalSlotProps.style,
+    ...additionalProps == null ? void 0 : additionalProps.style,
+    ...externalForwardedProps == null ? void 0 : externalForwardedProps.style,
+    ...externalSlotProps == null ? void 0 : externalSlotProps.style
+  };
+  const props = {
+    ...internalSlotProps,
+    ...additionalProps,
+    ...otherPropsWithoutEventHandlers,
+    ...componentsPropsWithoutEventHandlers
+  };
+  if (joinedClasses.length > 0) {
+    props.className = joinedClasses;
+  }
+  if (Object.keys(mergedStyle).length > 0) {
+    props.style = mergedStyle;
+  }
+  return {
+    props,
+    internalRef: internalSlotProps.ref
   };
 }
 function useSlot(name, parameters) {
@@ -12635,6 +12738,13 @@ function useSlot(name, parameters) {
     ref
   }, ownerState);
   return [elementType, props];
+}
+function isFocusVisible(element) {
+  try {
+    return element.matches(":focus-visible");
+  } catch (error) {
+  }
+  return false;
 }
 var top = "top";
 var bottom = "bottom";
@@ -13982,6 +14092,37 @@ var defaultModifiers = [eventListeners, popperOffsets$1, computeStyles$1, applyS
 var createPopper = /* @__PURE__ */ popperGenerator({
   defaultModifiers
 });
+function useSlotProps(parameters) {
+  var _a;
+  const {
+    elementType,
+    externalSlotProps,
+    ownerState,
+    skipResolvingSlotProps = false,
+    ...other
+  } = parameters;
+  const resolvedComponentsProps = skipResolvingSlotProps ? {} : resolveComponentProps(externalSlotProps, ownerState);
+  const {
+    props: mergedProps,
+    internalRef
+  } = mergeSlotProps({
+    ...other,
+    externalSlotProps: resolvedComponentsProps
+  });
+  const ref = useForkRef(internalRef, resolvedComponentsProps == null ? void 0 : resolvedComponentsProps.ref, (_a = parameters.additionalProps) == null ? void 0 : _a.ref);
+  const props = appendOwnerState(elementType, {
+    ...mergedProps,
+    ref
+  }, ownerState);
+  return props;
+}
+function getReactElementRef(element) {
+  var _a;
+  if (parseInt(reactExports.version, 10) >= 19) {
+    return ((_a = element == null ? void 0 : element.props) == null ? void 0 : _a.ref) || null;
+  }
+  return (element == null ? void 0 : element.ref) || null;
+}
 function getContainer(container) {
   return typeof container === "function" ? container() : container;
 }
@@ -14238,8 +14379,7 @@ const Popper$1 = /* @__PURE__ */ reactExports.forwardRef(function Popper2(props,
 });
 const PopperRoot = styled(Popper$1, {
   name: "MuiPopper",
-  slot: "Root",
-  overridesResolver: (props, styles2) => styles2.root
+  slot: "Root"
 })({});
 const Popper = /* @__PURE__ */ reactExports.forwardRef(function Popper22(inProps, ref) {
   const isRtl = useRtl();
@@ -14588,7 +14728,7 @@ const TooltipTooltip = styled("div", {
 })(memoTheme(({
   theme
 }) => ({
-  backgroundColor: theme.vars ? theme.vars.palette.Tooltip.bg : alpha(theme.palette.grey[700], 0.92),
+  backgroundColor: theme.vars ? theme.vars.palette.Tooltip.bg : theme.alpha(theme.palette.grey[700], 0.92),
   borderRadius: (theme.vars || theme).shape.borderRadius,
   color: (theme.vars || theme).palette.common.white,
   fontFamily: theme.typography.fontFamily,
@@ -14700,8 +14840,7 @@ const TooltipTooltip = styled("div", {
 })));
 const TooltipArrow = styled("span", {
   name: "MuiTooltip",
-  slot: "Arrow",
-  overridesResolver: (props, styles2) => styles2.arrow
+  slot: "Arrow"
 })(memoTheme(({
   theme
 }) => ({
@@ -14710,7 +14849,7 @@ const TooltipArrow = styled("span", {
   width: "1em",
   height: "0.71em",
   boxSizing: "border-box",
-  color: theme.vars ? theme.vars.palette.Tooltip.bg : alpha(theme.palette.grey[700], 0.9),
+  color: theme.vars ? theme.vars.palette.Tooltip.bg : theme.alpha(theme.palette.grey[700], 0.9),
   "&::before": {
     content: '""',
     margin: "auto",
@@ -14786,9 +14925,7 @@ const Tooltip = /* @__PURE__ */ reactExports.forwardRef(function Tooltip2(inProp
   const touchTimer = useTimeout();
   const [openState, setOpenState] = useControlled({
     controlled: openProp,
-    default: false,
-    name: "Tooltip",
-    state: "open"
+    default: false
   });
   let open = openState;
   const id2 = useId(idProp);
@@ -14851,9 +14988,19 @@ const Tooltip = /* @__PURE__ */ reactExports.forwardRef(function Tooltip2(inProp
   };
   const [, setChildIsFocusVisible] = reactExports.useState(false);
   const handleBlur = (event) => {
-    if (!isFocusVisible(event.target)) {
+    const target = (event == null ? void 0 : event.target) ?? childNode;
+    if (!target || !isFocusVisible(target)) {
       setChildIsFocusVisible(false);
-      handleMouseLeave(event);
+      const closeEvent = event ?? new Event("blur");
+      if (!event && target) {
+        Object.defineProperty(closeEvent, "target", {
+          value: target
+        });
+        Object.defineProperty(closeEvent, "currentTarget", {
+          value: target
+        });
+      }
+      handleMouseLeave(closeEvent);
     }
   };
   const handleFocus = (event) => {
