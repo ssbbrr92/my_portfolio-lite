@@ -100,7 +100,7 @@ function App() {
                   <li>Docker</li>
                   <li>Linux / Shell Script</li>
                   <li>NGiNX</li>
-                  <li>Redis Server</li>
+                  <li>Redis</li>
                   <li>Hazelcast</li>
                 </ul>
               </div>
@@ -127,7 +127,10 @@ function App() {
                           - 고도화 개발 진행<br/>
                           - Vue3 관련 공용 컴포넌트 제작 및 Dev Center 페이지 제작<br/>
                           - User, Role 관리 페이지 및 Impersonation Login 기능 개발<br/>
-                          - AWS, SCP Console Log 배치 프로세스 개발 (Hazelcast Cache 사용)<br/>
+                          - AWS, SCP Console Log 배치 프로세스 개발 (Hazelcast Cache)<br/>
+                          - OTP 재발급 기능 개발<br/>
+                          - Resource Access 기능 확대 (Azure)<br/>
+                          - 데이터베이스 기반 .yml 설정 클래스 실시간 수정 작업 (Java Reflection, RefreshScope)<br/>
                         </div>
                       </li>
                     </ul>
