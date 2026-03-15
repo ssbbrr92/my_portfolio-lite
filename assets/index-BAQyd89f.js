@@ -15307,7 +15307,7 @@ function App() {
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Docker" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Linux / Shell Script" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "NGiNX" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Redis Server" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Redis" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Hazelcast" })
           ] })
         ] })
@@ -15330,7 +15330,13 @@ function App() {
                 /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
                 "- User, Role 관리 페이지 및 Impersonation Login 기능 개발",
                 /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-                "- AWS, SCP Console Log 배치 프로세스 개발 (Hazelcast Cache 사용)",
+                "- AWS, SCP Console Log 배치 프로세스 개발 (Hazelcast Cache)",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                "- OTP 재발급 기능 개발",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                "- Resource Access 기능 확대 (Azure)",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                "- 데이터베이스 기반 .yml 설정 클래스 실시간 수정 작업 (Java Reflection, RefreshScope)",
                 /* @__PURE__ */ jsxRuntimeExports.jsx("br", {})
               ] })
             ] }) })
